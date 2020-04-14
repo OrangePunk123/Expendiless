@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Expendiless</string>
+    <string name="expense">Expense</string>
+    <string name="expense_description">Expense Description</string>
+    <string name="update">UPDATE</string>
+    <string name="your_remaining_balance_for_this_monrh">Your Remaining Balance For This Monrh</string>
 </resources>

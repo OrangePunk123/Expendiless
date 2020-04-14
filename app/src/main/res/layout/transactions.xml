@@ -14,13 +14,14 @@
         android:layout_height="48dp"
         android:background="@drawable/button"
         android:ems="10"
-        android:hint="   Expense"
+        android:hint="@string/expense"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.464" />
+        app:layout_constraintVertical_bias="0.464"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/edescription"
@@ -29,13 +30,14 @@
         android:background="@drawable/button"
 
         android:ems="10"
-        android:hint="   Expense Description"
+        android:hint="@string/expense_description"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.588" />
+        app:layout_constraintVertical_bias="0.588"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/addTransaction"
@@ -43,7 +45,7 @@
         android:layout_height="wrap_content"
         android:background="#7DC880"
         android:onClick="UPDATE"
-        android:text="UPDATE"
+        android:text="@string/update"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,7 +72,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Remaining Balance For This Monrh"
+        android:text="@string/your_remaining_balance_for_this_monrh"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

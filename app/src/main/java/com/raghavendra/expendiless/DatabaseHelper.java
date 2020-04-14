@@ -118,7 +118,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues content1 = new ContentValues();
         content1.put(COL_0,id);
         content1.put(COL_1,name);
-       // content1.put(COL_2,password);
+       // content1.put(COL  _2,password);
         content1.put(COL_3,price);
         content1.put(COL_6,date);
         content1.put(COL_7,new Date().getTime());

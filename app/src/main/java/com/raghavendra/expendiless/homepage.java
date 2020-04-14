@@ -59,7 +59,7 @@ public class homepage extends AppCompatActivity {
         Cursor cur = mdb.db.rawQuery("SELECT DATE FROM USERS WHERE ID ='"+id+"'",null);
         cur.moveToNext();
         long dateStarted = cur.getLong(0);
-        if(dateStarted+2592000<= new Date().getTime()){
+        if(dateStarted+2592000000L<= new Date().getTime()){
             reset();
         }
         else{
@@ -72,7 +72,6 @@ public class homepage extends AppCompatActivity {
         Intent in = getIntent();
         String temp = in.getStringExtra("id");
         Integer id = Integer.parseInt(temp);
-
 
 
         TextView display= findViewById(R.id.display);
@@ -88,10 +87,6 @@ public class homepage extends AppCompatActivity {
         cur.moveToNext();
         x =cur.getInt(0);
         display.setText(""+x);
-
-
-
-
 
     }
 
