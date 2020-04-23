@@ -17,7 +17,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+
 public class sign_in extends AppCompatActivity {
+
+    private static final String TAG = "MainActivity";
+    private AdView mAdView;
+
 
     DatabaseHelper mDB;
     EditText Name;
@@ -31,6 +39,10 @@ public class sign_in extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_in);
         mDB = new DatabaseHelper(context);
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 /*
         Intent in = getIntent();
         String temp = in.getStringExtra("id");

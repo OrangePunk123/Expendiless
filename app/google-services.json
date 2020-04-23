@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "267544981479",
+    "firebase_url": "https://expendiless-46cb1.firebaseio.com",
+    "project_id": "expendiless-46cb1",
+    "storage_bucket": "expendiless-46cb1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267544981479:android:528a0d15ca3b091e16d742",
+        "android_client_info": {
+          "package_name": "com.raghavendra.expendiless"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "267544981479-r9lg0l3vdn1sm45a08ii9a6inao2m6um.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCD2FP8CgdrZpjL9exBIQiloXKDARPUBMo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "267544981479-r9lg0l3vdn1sm45a08ii9a6inao2m6um.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
