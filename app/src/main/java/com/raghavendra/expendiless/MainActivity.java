@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import java.util.Date;
 
-public class MainActivity extends AppCompatActivity {
+public class    MainActivity extends AppCompatActivity {
     DatabaseHelper mDB;
     EditText Name;
     EditText Password;
