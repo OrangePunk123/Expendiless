@@ -1,5 +1,6 @@
 package com.raghavendra.expendiless;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
@@ -11,6 +12,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,7 +45,7 @@ public class homepage extends AppCompatActivity {
     DatabaseHelper mdb;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         Context context = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage);
@@ -65,6 +68,39 @@ public class homepage extends AppCompatActivity {
         else{
             drawPie(id);
         }
+
+        Button resetbt=findViewById(R.id.reset);
+        resetbt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder rdialog= new AlertDialog.Builder(homepage.this);
+                View dialogv= getLayoutInflater().inflate(R.layout.reset_budget,null);
+                final EditText budget=(EditText)dialogv.findViewById(R.id.newBudget);
+//                Integer budgetint=Integer.parseInt(budget.getText().toString());
+                Button ok=(Button)dialogv.findViewById(R.id.OkButton);
+                ok.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(!budget.getText().toString().isEmpty()){
+                            reset();
+                           /* Intent intent=new Intent(homepage.this,homepage.class);
+                            finish();
+                            overridePendingTransition(0,0);
+                            startActivity(intent);
+                            overridePendingTransition(0,0);*/
+                            //onCreate(savedInstanceState);
+                        }
+                        else{
+                            Toast.makeText(homepage.this,"Please Enter Details",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+                rdialog.setView(dialogv);
+                AlertDialog dialog= rdialog.create();
+                dialog.show();
+            }
+        });
+
     }
 
     public void updateDisplay(){
@@ -115,6 +151,7 @@ public class homepage extends AppCompatActivity {
         mdb.db.update(TABLE1,content,"ID=?", new String[] {String.valueOf(id)} );
 
         Toast.makeText(this,"Your expense sheet has been resetted",Toast.LENGTH_LONG).show();
+
 
     }
 
