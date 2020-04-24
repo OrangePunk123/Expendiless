@@ -40,9 +40,7 @@ public class sign_in extends AppCompatActivity {
         setContentView(R.layout.sign_in);
         mDB = new DatabaseHelper(context);
 
-        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+
 /*
         Intent in = getIntent();
         String temp = in.getStringExtra("id");

@@ -4,7 +4,7 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/buisness"
+    android:background="@drawable/newbackground"
     android:layout_height="match_parent"
     tools:context=".homepage">
 
@@ -13,14 +13,14 @@
         android:id="@+id/textView4"
         android:layout_width="189dp"
         android:layout_height="46dp"
-        android:text="Expenses this Month"
+        android:text="             Expenses this Month"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.769" />
+        app:layout_constraintVertical_bias="0.709" />
 
     <TextView
         android:id="@+id/display2"
@@ -31,21 +31,23 @@
         android:textSize="70sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.995"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/animatedPieView"
-        app:layout_constraintVertical_bias="0.682" />
+        app:layout_constraintVertical_bias="0.617" />
 
     <com.razerdp.widget.animatedpieview.AnimatedPieView
         android:id="@+id/animatedPieView"
         android:layout_width="410dp"
         android:layout_height="368dp"
+        android:background="#0F1129"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
 
     <Button
         android:id="@+id/showtransactionsbutton"
@@ -56,10 +58,10 @@
         android:text="Show all my Transactions"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintHorizontal_bias="0.941"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.885" />
+        app:layout_constraintVertical_bias="0.862" />
 
     <Button
         android:id="@+id/addexpence"
@@ -67,14 +69,13 @@
         android:layout_height="48dp"
         android:background="@drawable/button"
         android:onClick="addExpensehere"
-        android:text="add expence"
+        android:text="add expense"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.885"
-        />
+        app:layout_constraintVertical_bias="0.862" />
 
     <TextView
         android:id="@+id/display"
@@ -88,10 +89,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/animatedPieView"
-        app:layout_constraintVertical_bias="0.682"
-        />
-
-
+        app:layout_constraintVertical_bias="0.617" />
 
     <TextView
         android:id="@+id/textView3"
@@ -101,10 +99,10 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintHorizontal_bias="0.038"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.769" />
+        app:layout_constraintVertical_bias="0.709" />
 
     <Button
         android:id="@+id/reset"
@@ -120,5 +118,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
+
+    <TextView
+        android:id="@+id/numberofdays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#FFF"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.771" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

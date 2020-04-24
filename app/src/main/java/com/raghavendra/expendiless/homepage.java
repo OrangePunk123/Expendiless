@@ -3,15 +3,20 @@ package com.raghavendra.expendiless;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.nfc.cardemulation.HostNfcFService;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -44,6 +49,14 @@ public class homepage extends AppCompatActivity {
 
     DatabaseHelper mdb;
 
+    Integer id;
+    String name;
+    Integer updatedprice;
+    EditText budget;
+    long dateStarted;
+
+    TextView display;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         Context context = this;
@@ -55,17 +68,31 @@ public class homepage extends AppCompatActivity {
 
         Intent in = getIntent();
         String temp = in.getStringExtra("id");
-        Integer id = Integer.parseInt(temp);
+        id = Integer.parseInt(temp);
 
         //month check
 
         Cursor cur = mdb.db.rawQuery("SELECT DATE FROM USERS WHERE ID ='"+id+"'",null);
         cur.moveToNext();
-        long dateStarted = cur.getLong(0);
-        if(dateStarted+2592000000L<= new Date().getTime()){
+        dateStarted = cur.getLong(0);
+        if(dateStarted+2628000000L<= new Date().getTime()){
+            Toast.makeText(homepage.this,"One Month is Over...Your Price is now Resetted",Toast.LENGTH_LONG).show();
             reset();
         }
         else{
+
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    TextView days = findViewById(R.id.numberofdays);
+                    Long temp=dateStarted;
+                    temp=2628000000L-(new Date().getTime()-temp);
+                    temp=temp/86400000L;
+                    days.setText(Long.toString(temp)+" More Days");
+                }
+            },1000);
+
             drawPie(id);
         }
 
@@ -74,27 +101,59 @@ public class homepage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder rdialog= new AlertDialog.Builder(homepage.this);
+                //rdialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 View dialogv= getLayoutInflater().inflate(R.layout.reset_budget,null);
-                final EditText budget=(EditText)dialogv.findViewById(R.id.newBudget);
-//                Integer budgetint=Integer.parseInt(budget.getText().toString());
+
+
+
+
                 Button ok=(Button)dialogv.findViewById(R.id.OkButton);
+                budget=(EditText)dialogv.findViewById(R.id.newBudget);
+                //updatedprice=Integer.parseInt(budget.getText().toString());
                 ok.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+
                         if(!budget.getText().toString().isEmpty()){
+                            updatedprice=Integer.parseInt(budget.getText().toString());
+
+                            Cursor getValues=mdb.db.rawQuery("SELECT NAME FROM USERS WHERE ID ="+id,null);
+                            getValues.moveToNext();
+                            name=getValues.getString(0);
+                            Integer updatedexpenses=0;
+                            String desc="RESETTED";
+
+                            ContentValues content = new ContentValues();
+                            content.put(COL_0,id);
+                            content.put(COL_1,name);
+                            content.put(COL_3,updatedprice);
+                            content.put(COL_4,updatedexpenses);
+                            content.put(COL_5,desc);
+                            content.put(COL_6,new Date().getTime());
+                            mdb.addTransactionT1(id,content);
+                            mdb.addTransactionT2(content);
+                            Toast.makeText(homepage.this, "updated",Toast.LENGTH_LONG).show();
+
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    homepage.this.recreate();
+                                }
+                            },1000);
+
+
+
                             reset();
-                           /* Intent intent=new Intent(homepage.this,homepage.class);
-                            finish();
-                            overridePendingTransition(0,0);
-                            startActivity(intent);
-                            overridePendingTransition(0,0);*/
-                            //onCreate(savedInstanceState);
+
                         }
                         else{
                             Toast.makeText(homepage.this,"Please Enter Details",Toast.LENGTH_LONG).show();
                         }
                     }
                 });
+
                 rdialog.setView(dialogv);
                 AlertDialog dialog= rdialog.create();
                 dialog.show();
@@ -107,24 +166,46 @@ public class homepage extends AppCompatActivity {
 
         Intent in = getIntent();
         String temp = in.getStringExtra("id");
-        Integer id = Integer.parseInt(temp);
+        id = Integer.parseInt(temp);
 
 
-        TextView display= findViewById(R.id.display);
-        DatabaseHelper mdb = new DatabaseHelper(this);
+         display= findViewById(R.id.display);
+         mdb = new DatabaseHelper(this);
         //EditText expense = findViewById(R.id.expenditure);
 
-        Cursor cur = mdb.db.rawQuery("SELECT USERS.PRICE FROM USERS WHERE USERS.ID="+id,null);
-        cur.moveToNext();
-        Integer x =cur.getInt(0);
-        display.setText(""+x);
-        cur = mdb.db.rawQuery("SELECT USERS.EXPENSES FROM USERS WHERE USERS.ID="+id,null);
-        display= findViewById(R.id.display2);
-        cur.moveToNext();
-        x =cur.getInt(0);
-        display.setText(""+x);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                //For Displaying the Prices and Expenses
+                Cursor cur = mdb.db.rawQuery("SELECT USERS.PRICE FROM USERS WHERE USERS.ID="+id,null);
+                cur.moveToNext();
+                Integer x =cur.getInt(0);
+                display.setText(""+x);
+                cur = mdb.db.rawQuery("SELECT USERS.EXPENSES FROM USERS WHERE USERS.ID="+id,null);
+                display= findViewById(R.id.display2);
+                cur.moveToNext();
+                x =cur.getInt(0);
+                display.setText(""+x);
+
+                //For Displaying the number of days left
+//                Cursor getDays = mdb.db.rawQuery("SELECT DATE FROM USERS WHERE ID ='"+id+"'",null);
+//                cur.moveToNext();
+//                long startedDay = getDays.getLong(0);
+//                TextView days = findViewById(R.id.numberofdays);
+//                days.setText((int) startedDay);
+
+
+
+
+
+            }
+
+        }, 1000);
 
     }
+
 
 
     public void reset(){
@@ -151,6 +232,8 @@ public class homepage extends AppCompatActivity {
         mdb.db.update(TABLE1,content,"ID=?", new String[] {String.valueOf(id)} );
 
         Toast.makeText(this,"Your expense sheet has been resetted",Toast.LENGTH_LONG).show();
+
+
 
 
     }

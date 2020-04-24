@@ -6,74 +6,104 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/buisness"
+    android:background="@drawable/newbackground"
     android:hapticFeedbackEnabled="false"
     tools:context=".MainActivity">
 
+
     <TextView
         android:id="@+id/text"
-        android:layout_width="343dp"
-        android:layout_height="124dp"
-        android:text="Expendiless"
-        android:textColor="@android:color/white"
-        android:textSize="60sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1" />
+        android:layout_width="305dp"
+        android:layout_height="63dp"
+        android:gravity="center"
+        android:text="Expend-i-less"
+        android:textColor="@android:color/tab_indicator_text"
+        android:textSize="50sp"
+        android:textStyle="normal"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintHorizontal_bias="0.547"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toTopOf="parent"
+        ads:layout_constraintVertical_bias="0.287" />
 
     <EditText
         android:id="@+id/signinName"
-        android:layout_width="355dp"
-        android:layout_height="48dp"
-        android:background="@drawable/button"
+        android:layout_width="352dp"
+        android:layout_height="44dp"
+        android:backgroundTint="#ADA8B3"
         android:ems="10"
         android:hint="   Name"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.336" />
+        android:textColor="#706C6C"
+        android:textColorHint="#A3A2A5"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintHorizontal_bias="0.0"
+        ads:layout_constraintStart_toEndOf="@+id/imageView2"
+        ads:layout_constraintTop_toTopOf="parent"
+        ads:layout_constraintVertical_bias="0.425" />
 
     <EditText
         android:id="@+id/signinPassword"
         android:layout_width="355dp"
-        android:layout_height="48dp"
-        android:background="@drawable/button"
+        android:layout_height="44dp"
+        android:backgroundTint="#ADA8B3"
         android:ems="10"
         android:hint="   PASSWORD"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.458" />
+        android:textColor="#706C6C"
+        android:textColorHint="#A3A2A5"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintHorizontal_bias="1.0"
+        ads:layout_constraintStart_toEndOf="@+id/imageView3"
+        ads:layout_constraintTop_toBottomOf="@+id/signinName"
+        ads:layout_constraintVertical_bias="0.145" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="47dp"
+        android:layout_height="44dp"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintHorizontal_bias="0.024"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toTopOf="parent"
+        ads:layout_constraintVertical_bias="0.425"
+        ads:srcCompat="@drawable/contacts" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="47dp"
+        android:layout_height="44dp"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintHorizontal_bias="0.024"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toTopOf="parent"
+        ads:layout_constraintVertical_bias="0.563"
+        ads:srcCompat="@drawable/password" />
 
     <Button
         android:id="@+id/login"
         android:layout_width="277dp"
         android:layout_height="46dp"
-        android:background="#7DC880"
-        android:textColor="#FFFFFF"
+        android:background="@drawable/login"
         android:onClick="loginapp"
         android:text="LOGIN"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.665" />
-
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/signinPassword"
+        ads:layout_constraintVertical_bias="0.453" />
 
     <TextView
         android:id="@+id/signUP"
         android:layout_width="296dp"
         android:layout_height="17dp"
         android:background="@drawable/button"
-
         android:onClick="openActivitySignUp"
         android:text="  New to Expendiless? Click Here to Sign Up"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -83,20 +113,31 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.964" />
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/ad"
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="34dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="109dp"
+        android:layout_marginEnd="99dp"
+        ads:layout_constraintBottom_toBottomOf="@+id/text"
+        ads:layout_constraintEnd_toEndOf="@+id/text"
+        ads:layout_constraintHorizontal_bias="0.984"
+        ads:layout_constraintStart_toStartOf="@+id/text"
+        ads:layout_constraintTop_toTopOf="@+id/text"
+        ads:layout_constraintVertical_bias="0.0"
+        ads:srcCompat="@drawable/moneyg" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="92dp"
+        android:layout_height="79dp"
         ads:layout_constraintBottom_toBottomOf="parent"
         ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintHorizontal_bias="0.498"
         ads:layout_constraintStart_toStartOf="parent"
         ads:layout_constraintTop_toTopOf="parent"
-        ads:layout_constraintVertical_bias="0.853">
+        ads:layout_constraintVertical_bias="0.131"
+        ads:srcCompat="@drawable/graph1" />
 
-    </com.google.android.gms.ads.AdView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

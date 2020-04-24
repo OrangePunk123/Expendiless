@@ -1,25 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
+    android:background="@drawable/dialog"
     android:layout_height="match_parent"
     android:padding="10sp">
 
+
     <TextView
-        android:id="@+id/textBudget"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="#FFF"
         android:text="@string/enter_new_budget"
-        android:textSize="25sp"/>
+        android:textSize="20sp"/>
 
     <EditText
         android:id="@+id/newBudget"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textColor="#B39C9C"
         android:ems="10"
-        android:inputType="number" />
+        android:inputType="number"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="10dp" />
+
+
 
     <Button
+        android:background="@drawable/button"
         android:id="@+id/OkButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
