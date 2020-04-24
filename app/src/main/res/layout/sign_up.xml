@@ -90,7 +90,7 @@
         android:layout_height="48dp"
         android:backgroundTint="#ADA8B3"
         android:ems="10"
-        android:hint="   Price"
+        android:hint="   Enter Your Monthly Budget"
         android:inputType="number"
         android:textColor="#706C6C"
         android:textColorHint="#A3A2A5"
