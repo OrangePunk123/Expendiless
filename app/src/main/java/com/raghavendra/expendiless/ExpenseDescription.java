@@ -31,8 +31,10 @@ public class ExpenseDescription extends AppCompatActivity {
         String temp = in.getStringExtra("id");
         Integer id = Integer.parseInt(temp);
 
-       // StringBuffer sb= new StringBuffer();
+
         ArrayList myArray = new ArrayList();
+
+
         Cursor cur = mDB.showALLTransactions(id);
 
 
@@ -48,6 +50,7 @@ public class ExpenseDescription extends AppCompatActivity {
 
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,R.layout.mytextview, myArray);
+
         ListView lv =findViewById(R.id.mylistview);
         //lv.setBackground(Drawable.createFromPath("@drawable/newbackground"));
         lv.setAdapter(arrayAdapter);

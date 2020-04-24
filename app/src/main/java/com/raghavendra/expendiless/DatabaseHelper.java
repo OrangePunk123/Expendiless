@@ -26,6 +26,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final static String COL_5 ="EXPENSE_DESCRIPTION";
     final static String COL_6 ="DATE_OF_ENTRY";
     final static String COL_7="DATE";
+    //Our DATABASE
     SQLiteDatabase db;
 
 
@@ -40,7 +41,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        //TABLE 1
+        //TABLE 1 LOGIC
 
 
         db.execSQL("CREATE TABLE "+TABLE1+"("+COL_0+" INT PRIMARY KEY, "+COL_1+" VARCHAR(50) ,"+COL_2+" VARCHAR(30) NOT NULL,"+COL_3+" INT NOT NULL," +
@@ -48,7 +49,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
-        //TABLE 2
+        //TABLE 2 TRANSACTION
 
         db.execSQL("CREATE TABLE "+TABLE2+"("+COL_0+" INT, "+COL_1+" VARCHAR(50), "+COL_3+" INT, "+COL_4+" INT DEFAULT 0, "+COL_5+" VARCHAR(300), "+COL_6+" VARCHAR(50) );");
     }
