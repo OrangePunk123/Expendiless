@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -46,9 +47,9 @@ public class ExpenseDescription extends AppCompatActivity {
 
 
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, myArray);
-
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,R.layout.mytextview, myArray);
         ListView lv =findViewById(R.id.mylistview);
+        //lv.setBackground(Drawable.createFromPath("@drawable/newbackground"));
         lv.setAdapter(arrayAdapter);
     }
 }
